@@ -1,0 +1,51 @@
+{
+  "name": "sort-phraseapp-locales",
+  "version": "0.0.1",
+  "description": "Sort localization JSON files like PhraseApp does",
+  "engines": {
+    "node": ">=7.6"
+  },
+  "bin": "./sort-locales.js",
+  "files": [
+    "sort-locales.js"
+  ],
+  "prepublishOnly": "npm test",
+  "scripts": {
+    "test": "npm run lint && npm run test-right-json && npm run test-wrong-json && npm run test-all-json-files",
+    "test-right-json": "./sort-locales.js test/right.json; if [ $? -eq 0 ]; then echo 'PASS'; else echo 'FAIL'; fi",
+    "test-wrong-json": "./sort-locales.js test/wrong.json; if [ $? -eq 1 ]; then echo 'PASS'; else echo 'FAIL'; fi",
+    "test-all-json-files": "./sort-locales.js test/*.json; if [ $? -eq 1 ]; then echo 'PASS'; else echo 'FAIL'; fi",
+    "lint": "npm run prettier -- --list-different",
+    "fixlint": "npm run prettier -- --write",
+    "prettier": "prettier sort-locales.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ePages-de/sort-phraseapp-locales.git"
+  },
+  "keywords": [
+    "sorting",
+    "json",
+    "phraseapp",
+    "i18n",
+    "l10n"
+  ],
+  "author": "Paolo Priotto <p.priotto@epages.com>",
+  "contributors": [
+    "Christian Hoffmeister <mail@choffmeister.de>",
+    "Florian Oellerich <falkentavio@hotmail.de>",
+    "Ingmar Hergst <i.hergst@epages.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ePages-de/sort-phraseapp-locales/issues"
+  },
+  "homepage": "https://github.com/ePages-de/sort-phraseapp-locales#readme",
+  "devDependencies": {
+    "prettier": "^1.13.7"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "yargs": "^12.0.1"
+  }
+}
