@@ -7,8 +7,8 @@ For this workflow to work flawlessly, you need to ensure that your locales are a
 
 ```bash
 # test for correct sorting (exit code > 0 upon wrong sorting)
-sort-locales path/to/file1.json path/to/file2.json
+npx sort-phraseapp-locales path/to/file1.json path/to/file2.json
 
 # sort everything in place
-sort-locales path/to/file1.json path/to/file2.json --fix
+npx sort-phraseapp-locales path/to/file1.json path/to/file2.json --fix
 ```
